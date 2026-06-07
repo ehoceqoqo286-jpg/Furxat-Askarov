@@ -48,12 +48,12 @@
     <button class="btn-clear" onclick="clearAll()">Tozalash</button>
 </header>
 
-<div class="nav-tabs" id="navTabs">
-    <button class="tab-btn active" onclick="switchTab('burgers')">Burgerlar</button>
-    <button class="tab-btn" onclick="switchTab('sets')">To'plamlar</button>
-    <button class="tab-btn" onclick="switchTab('hotdogs')">Hot-Dog / Assorti</button>
-    <button class="tab-btn" onclick="switchTab('salads')">Salatlar</button>
-    <button class="tab-btn" onclick="switchTab('snacks')">Gazaklar</button>
+<div class="nav-tabs">
+    <button class="tab-btn active" onclick="switchTab(event, 'burgers')">Burgerlar</button>
+    <button class="tab-btn" onclick="switchTab(event, 'sets')">To'plamlar</button>
+    <button class="tab-btn" onclick="switchTab(event, 'hotdogs')">Hot-Dog / Assorti</button>
+    <button class="tab-btn" onclick="switchTab(event, 'salads')">Salatlar</button>
+    <button class="tab-btn" onclick="switchTab(event, 'snacks')">Gazaklar</button>
 </div>
 
 <div class="meta-input">
@@ -61,11 +61,66 @@
     <input type="text" id="orderComment" placeholder="Izoh (masalan: piyozsiz)">
 </div>
 
-<div id="burgers" class="category-section active"><div class="category-title">Burgerlar</div><div id="burger-list"></div></div>
-<div id="sets" class="category-section"><div class="category-title">To'plamlar (Sets)</div><div id="sets-list"></div></div>
-<div id="hotdogs" class="category-section"><div class="category-title">Hot-Doglar va Assorti</div><div id="hotdogs-list"></div></div>
-<div id="salads" class="category-section"><div class="category-title">Salatlar</div><div id="salads-list"></div></div>
-<div id="snacks" class="category-section"><div class="category-title">Gazaklar (Snacks)</div><div id="snacks-list"></div></div>
+<div id="burgers" class="category-section active">
+    <div class="category-title">Burgerlar</div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">AMERICAN CHEF-BURGER</div><div class="item-price">75,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('b1', -1, 'AMERICAN CHEF-BURGER', 75000)">-</button><span class="count-val" id="qty-b1">0</span><button class="btn-count btn-plus" onclick="changeQty('b1', 1, 'AMERICAN CHEF-BURGER', 75000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">AFRICAN BURGER</div><div class="item-price">65,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('b2', -1, 'AFRICAN BURGER', 65000)">-</button><span class="count-val" id="qty-b2">0</span><button class="btn-count btn-plus" onclick="changeQty('b2', 1, 'AFRICAN BURGER', 65000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">TEXAS BBQ BURGER</div><div class="item-price">95,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('b3', -1, 'TEXAS BBQ BURGER', 95000)">-</button><span class="count-val" id="qty-b3">0</span><button class="btn-count btn-plus" onclick="changeQty('b3', 1, 'TEXAS BBQ BURGER', 95000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">UZBEKISTAN BURGER</div><div class="item-price">95,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('b4', -1, 'UZBEKISTAN BURGER', 95000)">-</button><span class="count-val" id="qty-b4">0</span><button class="btn-count btn-plus" onclick="changeQty('b4', 1, 'UZBEKISTAN BURGER', 95000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">SMASH BURGER</div><div class="item-price">63,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('b5', -1, 'SMASH BURGER', 63000)">-</button><span class="count-val" id="qty-b5">0</span><button class="btn-count btn-plus" onclick="changeQty('b5', 1, 'SMASH BURGER', 63000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">CALIFORNIA DOUBLE CHICKEN</div><div class="item-price">56,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('b6', -1, 'CALIFORNIA DOUBLE CHICKEN', 56000)">-</button><span class="count-val" id="qty-b6">0</span><button class="btn-count btn-plus" onclick="changeQty('b6', 1, 'CALIFORNIA DOUBLE CHICKEN', 56000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">CANADIAN CHICKEN BURGER</div><div class="item-price">39,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('b7', -1, 'CANADIAN CHICKEN BURGER', 39000)">-</button><span class="count-val" id="qty-b7">0</span><button class="btn-count btn-plus" onclick="changeQty('b7', 1, 'CANADIAN CHICKEN BURGER', 39000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">NEW YORK BURGER</div><div class="item-price">52,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('b8', -1, 'NEW YORK BURGER', 52000)">-</button><span class="count-val" id="qty-b8">0</span><button class="btn-count btn-plus" onclick="changeQty('b8', 1, 'NEW YORK BURGER', 52000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">BURGER EMBASSY (EKSKLUZIV)</div><div class="item-price">56,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('b9', -1, 'BURGER EMBASSY (EKSKLUZIV)', 56000)">-</button><span class="count-val" id="qty-b9">0</span><button class="btn-count btn-plus" onclick="changeQty('b9', 1, 'BURGER EMBASSY (EKSKLUZIV)', 56000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">TURKISH DURUM BURGER</div><div class="item-price">56,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('b10', -1, 'TURKISH DURUM BURGER', 56000)">-</button><span class="count-val" id="qty-b10">0</span><button class="btn-count btn-plus" onclick="changeQty('b10', 1, 'TURKISH DURUM BURGER', 56000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">DOUBLE BURGER</div><div class="item-price">78,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('b11', -1, 'DOUBLE BURGER', 78000)">-</button><span class="count-val" id="qty-b11">0</span><button class="btn-count btn-plus" onclick="changeQty('b11', 1, 'DOUBLE BURGER', 78000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">FRENCH TRUFFLE CHEESEBURGER</div><div class="item-price">80,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('b12', -1, 'FRENCH TRUFFLE CHEESEBURGER', 80000)">-</button><span class="count-val" id="qty-b12">0</span><button class="btn-count btn-plus" onclick="changeQty('b12', 1, 'FRENCH TRUFFLE CHEESEBURGER', 80000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">KOREAN BURGER</div><div class="item-price">49,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('b13', -1, 'KOREAN BURGER', 49000)">-</button><span class="count-val" id="qty-b13">0</span><button class="btn-count btn-plus" onclick="changeQty('b13', 1, 'KOREAN BURGER', 49000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">JUNIOR CHIKEN BURGER</div><div class="item-price">25,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('b14', -1, 'JUNIOR CHIKEN BURGER', 25000)">-</button><span class="count-val" id="qty-b14">0</span><button class="btn-count btn-plus" onclick="changeQty('b14', 1, 'JUNIOR CHIKEN BURGER', 25000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">LITTLE CHEESE BURGER</div><div class="item-price">31,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('b15', -1, 'LITTLE CHEESE BURGER', 31000)">-</button><span class="count-val" id="qty-b15">0</span><button class="btn-count btn-plus" onclick="changeQty('b15', 1, 'LITTLE CHEESE BURGER', 31000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">KENTUCKY CHICKEN BURGER</div><div class="item-price">49,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('b16', -1, 'KENTUCKY CHICKEN BURGER', 49000)">-</button><span class="count-val" id="qty-b16">0</span><button class="btn-count btn-plus" onclick="changeQty('b16', 1, 'KENTUCKY CHICKEN BURGER', 49000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">BRAZILIAN CHICKEN BURGER</div><div class="item-price">49,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('b17', -1, 'BRAZILIAN CHICKEN BURGER', 49000)">-</button><span class="count-val" id="qty-b17">0</span><button class="btn-count btn-plus" onclick="changeQty('b17', 1, 'BRAZILIAN CHICKEN BURGER', 49000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">ITALIAN CHEESE BURGER</div><div class="item-price">56,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('b18', -1, 'ITALIAN CHEESE BURGER', 56000)">-</button><span class="count-val" id="qty-b18">0</span><button class="btn-count btn-plus" onclick="changeQty('b18', 1, 'ITALIAN CHEESE BURGER', 56000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">SPAIN SPICY BURGER</div><div class="item-price">56,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('b19', -1, 'SPAIN SPICY BURGER', 56000)">-</button><span class="count-val" id="qty-b19">0</span><button class="btn-count btn-plus" onclick="changeQty('b19', 1, 'SPAIN SPICY BURGER', 56000)">+</button></div></div>
+</div>
+
+<div id="sets" class="category-section">
+    <div class="category-title">To'plamlar (Sets)</div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">CANADIAN CHICKEN SET</div><div class="item-price">67,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('s1', -1, 'CANADIAN CHICKEN SET', 67000)">-</button><span class="count-val" id="qty-s1">0</span><button class="btn-count btn-plus" onclick="changeQty('s1', 1, 'CANADIAN CHICKEN SET', 67000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">SMASH SET</div><div class="item-price">89,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('s2', -1, 'SMASH SET', 89000)">-</button><span class="count-val" id="qty-s2">0</span><button class="btn-count btn-plus" onclick="changeQty('s2', 1, 'SMASH SET', 89000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">TURKISH DURUM SET</div><div class="item-price">83,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('s3', -1, 'TURKISH DURUM SET', 83000)">-</button><span class="count-val" id="qty-s3">0</span><button class="btn-count btn-plus" onclick="changeQty('s3', 1, 'TURKISH DURUM SET', 83000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">EMBASSY SET</div><div class="item-price">83,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('s4', -1, 'EMBASSY SET', 83000)">-</button><span class="count-val" id="qty-s4">0</span><button class="btn-count btn-plus" onclick="changeQty('s4', 1, 'EMBASSY SET', 83000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">NEW YORK SET</div><div class="item-price">81,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('s5', -1, 'NEW YORK SET', 81000)">-</button><span class="count-val" id="qty-s5">0</span><button class="btn-count btn-plus" onclick="changeQty('s5', 1, 'NEW YORK SET', 81000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">KIDS TRAVEL SET</div><div class="item-price">75,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('s6', -1, 'KIDS TRAVEL SET', 75000)">-</button><span class="count-val" id="qty-s6">0</span><button class="btn-count btn-plus" onclick="changeQty('s6', 1, 'KIDS TRAVEL SET', 75000)">+</button></div></div>
+</div>
+
+<div id="hotdogs" class="category-section">
+    <div class="category-title">Hot-Doglar va Assorti</div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">HOT-DOG KLASSIK</div><div class="item-price">28,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('h1', -1, 'HOT-DOG KLASSIK', 28000)">-</button><span class="count-val" id="qty-h1">0</span><button class="btn-count btn-plus" onclick="changeQty('h1', 1, 'HOT-DOG KLASSIK', 28000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">HOT-DOG SEUL</div><div class="item-price">30,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('h2', -1, 'HOT-DOG SEUL', 30000)">-</button><span class="count-val" id="qty-h2">0</span><button class="btn-count btn-plus" onclick="changeQty('h2', 1, 'HOT-DOG SEUL', 30000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">HOT-DOG FRANKFURT</div><div class="item-price">30,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('h3', -1, 'HOT-DOG FRANKFURT', 30000)">-</button><span class="count-val" id="qty-h3">0</span><button class="btn-count btn-plus" onclick="changeQty('h3', 1, 'HOT-DOG FRANKFURT', 30000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">GAZAKLAR ASSORTI</div><div class="item-price">59,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('h4', -1, 'GAZAKLAR ASSORTI', 59000)">-</button><span class="count-val" id="qty-h4">0</span><button class="btn-count btn-plus" onclick="changeQty('h4', 1, 'GAZAKLAR ASSORTI', 59000)">+</button></div></div>
+</div>
+
+<div id="salads" class="category-section">
+    <div class="category-title">Salatlar</div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">SALAT MOL GO'SHTILI</div><div class="item-price">36,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('sl1', -1, 'SALAT MOL GO\'SHTILI', 36000)">-</button><span class="count-val" id="qty-sl1">0</span><button class="btn-count btn-plus" onclick="changeQty('sl1', 1, 'SALAT MOL GO\'SHTILI', 36000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">SALAT GRECHESKIY</div><div class="item-price">27,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('sl2', -1, 'SALAT GRECHESKIY', 27000)">-</button><span class="count-val" id="qty-sl2">0</span><button class="btn-count btn-plus" onclick="changeQty('sl2', 1, 'SALAT GRECHESKIY', 27000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">SALAT KOUL SLOU</div><div class="item-price">12,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('sl3', -1, 'SALAT KOUL SLOU', 12000)">-</button><span class="count-val" id="qty-sl3">0</span><button class="btn-count btn-plus" onclick="changeQty('sl3', 1, 'SALAT KOUL SLOU', 12000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">SALAT SEZAR</div><div class="item-price">31,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('sl4', -1, 'SALAT SEZAR', 31000)">-</button><span class="count-val" id="qty-sl4">0</span><button class="btn-count btn-plus" onclick="changeQty('sl4', 1, 'SALAT SEZAR', 31000)">+</button></div></div>
+</div>
+
+<div id="snacks" class="category-section">
+    <div class="category-title">Gazaklar (Snacks)</div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">PISHLOQLI YOSTIQCHALAR 6 TA.</div><div class="item-price">28,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('sn1', -1, 'PISHLOQLI YOSTIQCHALAR 6 TA.', 28000)">-</button><span class="count-val" id="qty-sn1">0</span><button class="btn-count btn-plus" onclick="changeQty('sn1', 1, 'PISHLOQLI YOSTIQCHALAR 6 TA.', 28000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">NAGGETSLAR 6 TA. KLASSIK</div><div class="item-price">31,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('sn2', -1, 'NAGGETSLAR 6 TA. KLASSIK', 31000)">-</button><span class="count-val" id="qty-sn2">0</span><button class="btn-count btn-plus" onclick="changeQty('sn2', 1, 'NAGGETSLAR 6 TA. KLASSIK', 31000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">STRIPSLAR 5 TA.</div><div class="item-price">25,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('sn3', -1, 'STRIPSLAR 5 TA.', 25000)">-</button><span class="count-val" id="qty-sn3">0</span><button class="btn-count btn-plus" onclick="changeQty('sn3', 1, 'STRIPSLAR 5 TA.', 25000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">PISHLOQLI NAGGETSLAR 4 TA.</div><div class="item-price">20,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('sn4', -1, 'PISHLOQLI NAGGETSLAR 4 TA.', 20000)">-</button><span class="count-val" id="qty-sn4">0</span><button class="btn-count btn-plus" onclick="changeQty('sn4', 1, 'PISHLOQLI NAGGETSLAR 4 TA.', 20000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">PIYOZ HALQALARI 6 TA.</div><div class="item-price">25,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('sn5', -1, 'PIYOZ HALQALARI 6 TA.', 25000)">-</button><span class="count-val" id="qty-sn5">0</span><button class="btn-count btn-plus" onclick="changeQty('sn5', 1, 'PIYOZ HALQALARI 6 TA.', 25000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">FRI PISHLOQLI SOUS VA KIYIKO'T BILAN</div><div class="item-price">33,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('sn6', -1, 'FRI PISHLOQLI SOUS VA KIYIKO\'T BILAN', 33000)">-</button><span class="count-val" id="qty-sn6">0</span><button class="btn-count btn-plus" onclick="changeQty('sn6', 1, 'FRI PISHLOQLI SOUS VA KIYIKO\'T BILAN', 33000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">FRI KARTOSHKA</div><div class="item-price">24,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('sn7', -1, 'FRI KARTOSHKA', 24000)">-</button><span class="count-val" id="qty-sn7">0</span><button class="btn-count btn-plus" onclick="changeQty('sn7', 1, 'FRI KARTOSHKA', 24000)">+</button></div></div>
+    <div class="menu-item"><div class="item-info"><div class="item-name">QISHLOQCHA KARTOSHKA</div><div class="item-price">25,000 so'm</div></div><div class="counter"><button class="btn-count btn-minus" onclick="changeQty('sn8', -1, 'QISHLOQCHA KARTOSHKA', 25000)">-</button><span class="count-val" id="qty-sn8">0</span><button class="btn-count btn-plus" onclick="changeQty('sn8', 1, 'QISHLOQCHA KARTOSHKA', 25000)">+</button></div></div>
+</div>
 
 <div class="footer-bar">
     <div class="total-info">
@@ -76,86 +131,7 @@
 </div>
 
 <script>
-    const menuData = {
-        burgers: [
-            { id: 'b1', name: 'AMERICAN CHEF-BURGER', price: 75000 },
-            { id: 'b2', name: 'AFRICAN BURGER', price: 65000 },
-            { id: 'b3', name: 'TEXAS BBQ BURGER', price: 95000 },
-            { id: 'b4', name: 'UZBEKISTAN BURGER', price: 95000 },
-            { id: 'b5', name: 'SMASH BURGER', price: 63000 },
-            { id: 'b6', name: 'CALIFORNIA DOUBLE CHICKEN', price: 56000 },
-            { id: 'b7', name: 'CANADIAN CHICKEN BURGER', price: 39000 },
-            { id: 'b8', name: 'NEW YORK BURGER', price: 52000 },
-            { id: 'b9', name: 'BURGER EMBASSY (EKSKLUZIV)', price: 56000 },
-            { id: 'b10', name: 'TURKISH DURUM BURGER', price: 56000 },
-            { id: 'b11', name: 'DOUBLE BURGER', price: 78000 },
-            { id: 'b12', name: 'FRENCH TRUFFLE CHEESEBURGER', price: 80000 },
-            { id: 'b13', name: 'KOREAN BURGER', price: 49000 },
-            { id: 'b14', name: 'JUNIOR CHIKEN BURGER', price: 25000 },
-            { id: 'b15', name: 'LITTLE CHEESE BURGER', price: 31000 },
-            { id: 'b16', name: 'KENTUCKY CHICKEN BURGER', price: 49000 },
-            { id: 'b17', name: 'BRAZILIAN CHICKEN BURGER', price: 49000 },
-            { id: 'b18', name: 'ITALIAN CHEESE BURGER', price: 56000 },
-            { id: 'b19', name: 'SPAIN SPICY BURGER', price: 56000 }
-        ],
-        sets: [
-            { id: 's1', name: 'CANADIAN CHICKEN SET', price: 67000 },
-            { id: 's2', name: 'SMASH SET', price: 89000 },
-            { id: 's3', name: 'TURKISH DURUM SET', price: 83000 },
-            { id: 's4', name: 'EMBASSY SET', price: 83000 },
-            { id: 's5', name: 'NEW YORK SET', price: 81000 },
-            { id: 's6', name: 'KIDS TRAVEL SET', price: 75000 }
-        ],
-        hotdogs: [
-            { id: 'h1', name: 'HOT-DOG KLASSIK', price: 28000 },
-            { id: 'h2', name: 'HOT-DOG SEUL', price: 30000 },
-            { id: 'h3', name: 'HOT-DOG FRANKFURT', price: 30000 },
-            { id: 'h4', name: 'GAZAKLAR ASSORTI', price: 59000 }
-        ],
-        salads: [
-            { id: 'sl1', name: 'SALAT MOL GO\'SHTILI', price: 36000 },
-            { id: 'sl2', name: 'SALAT GRECHESKIY', price: 27000 },
-            { id: 'sl3', name: 'SALAT KOUL SLOU', price: 12000 },
-            { id: 'sl4', name: 'SALAT SEZAR', price: 31000 }
-        ],
-        snacks: [
-            { id: 'sn1', name: 'PISHLOQLI YOSTIQCHALAR 6 TA.', price: 28000 },
-            { id: 'sn2', name: 'NAGGETSLAR 6 TA. KLASSIK', price: 31000 },
-            { id: 'sn3', name: 'STRIPSLAR 5 TA.', price: 25000 },
-            { id: 'sn4', name: 'PISHLOQLI NAGGETSLAR 4 TA.', price: 20000 },
-            { id: 'sn5', name: 'PIYOZ HALQALARI 6 TA.', price: 25000 },
-            { id: 'sn6', name: 'FRI PISHLOQLI SOUS VA KIYIKO\'T BILAN', price: 33000 },
-            { id: 'sn7', name: 'FRI KARTOSHKA', price: 24000 },
-            { id: 'sn8', name: 'QISHLOQCHA KARTOSHKA', price: 25000 }
-        ]
-    };
-
     let currentOrder = {};
-
-    function renderMenu() {
-        for (let category in menuData) {
-            const container = document.getElementById(`${category}-list`);
-            if(!container) continue;
-            container.innerHTML = '';
-            
-            menuData[category].forEach(item => {
-                const itemEl = document.createElement('div');
-                itemEl.className = 'menu-item';
-                itemEl.innerHTML = `
-                    <div class="item-info">
-                        <div class="item-name">${item.name}</div>
-                        <div class="item-price">${item.price.toLocaleString()} so'm</div>
-                    </div>
-                    <div class="counter">
-                        <button class="btn-count btn-minus" onclick="changeQty('${item.id}', -1, '${item.name}', ${item.price})">-</button>
-                        <span class="count-val" id="qty-${item.id}">0</span>
-                        <button class="btn-count btn-plus" onclick="changeQty('${item.id}', 1, '${item.name}', ${item.price})">+</button>
-                    </div>
-                `;
-                container.appendChild(itemEl);
-            });
-        }
-    }
 
     function changeQty(id, delta, name, price) {
         if (!currentOrder[id]) {
@@ -179,13 +155,12 @@
         document.getElementById('totalPriceDisplay').innerText = total.toLocaleString() + " so'm";
     }
 
-    function switchTab(categoryId) {
+    function switchTab(event, categoryId) {
         document.querySelectorAll('.category-section').forEach(sec => sec.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-        document.getElementById(categoryId).classList.add('active');
         
-        // Bu yerda mobil brauzerlar xatosini to'g'rilash uchun hodisani tekshiramiz
-        if(event && event.currentTarget) {
+        document.getElementById(categoryId).classList.add('active');
+        if (event && event.currentTarget) {
             event.currentTarget.classList.add('active');
         }
     }
@@ -231,11 +206,6 @@
 
         window.open("https://t.me/share/url?url=" + encodeURIComponent(orderText), '_blank');
     }
-
-    // Sahifa to'liq yuklanganda menyuni render qilish
-    window.onload = function() {
-        renderMenu();
-    };
 </script>
 </body>
 </html>
